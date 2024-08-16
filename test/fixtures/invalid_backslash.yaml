@@ -1,0 +1,4 @@
+---
+en:
+  foo: "bar has an unescaped backslash"
+  bar: "This is a windows Filepath: C:\Documents\Newsletters\Summer2018.pdf"
