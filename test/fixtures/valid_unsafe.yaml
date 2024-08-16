@@ -1,0 +1,6 @@
+---
+defaults: &defaults
+  foo: "bar"
+production:
+  <<: *defaults
+  baz: "qux"
