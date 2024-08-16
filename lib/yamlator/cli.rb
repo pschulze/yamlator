@@ -1,6 +1,5 @@
 require "thor"
 require "zip"
-require "debug"
 
 module Yamlator
   class CLI < Thor
