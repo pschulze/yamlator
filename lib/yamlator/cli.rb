@@ -23,13 +23,7 @@ module Yamlator
         file_count = 0
 
         zip_file.each do |yaml_file|
-          # TODO: handle file type checking better
-          if yaml_file.ftype == :directory ||
-              yaml_file.name.match?(/\A(__MACOSX)/) ||
-              !(yaml_file.name.match?(/(.yml)\z/) || !yaml_file.name.match?(/(.yaml)\z/))
-            next
-          end
-          break if file_count == MAX_FILE_COUNT
+          next if yaml_file.ftype == :directory || !([".yml", ".yaml"].include? File.extname(yaml_file.name))
           text = yaml_file.get_input_stream.read
           samples << Yamlator::Sample.new(text, file_name: yaml_file.name)
           file_count += 1
